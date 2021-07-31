@@ -1,0 +1,24 @@
+<ul class="list-group">
+  <% routes.forEach(route => { %>
+  <li class="list-group-item d-flex justify-content-start align-items-center px-4">
+    <span class="align-middle">
+      <% if (route.type === "hue") {%>
+      <i class="fa fa-lightbulb fa-lg"></i>
+      <% } else if (route.type === "vent") {%>
+      <i class="fa fa-wind fa-lg"></i>
+      <% } else {%>
+      <i class="fa fa-question fa-lg"></i>
+      <% } %>
+    </span>
+
+    <span class="ms-4">
+      <h4 class=""><%= route.name %></h4>
+      <h6 class="text-muted"><%= route.url %></h6>
+    </span>
+
+    <a class="text-end flex-grow-1" href="/delete/<%= route.name %>"
+      ><i class="fa fa-trash fa-lg text-danger"></i
+    ></a>
+  </li>
+  <% }); %>
+</ul>

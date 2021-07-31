@@ -1,0 +1,17 @@
+<%- include("partials/error.ejs") %>
+
+<form method="POST" action="/create">
+  <input type="hidden" name="selectedType" value="hue" />
+  <input type="hidden" name="type" value="hue" />
+
+  <label for="hueIp" class="mb-2">Name</label>
+  <input type="text" class="form-control mb-3" placeholder="" id="hueIp" name="name" />
+
+  <label for="hueScene" class="mb-2">Scene</label>
+  <select class="form-select mb-3" id="hueScene" name="hueScene">
+    <% scenes.forEach(scene => { %>
+    <option value="<%= scene.id %>"><%= scene.name %></option>
+    <% }) %>
+  </select>
+  <button type="submit" class="btn btn-primary my-3">Save</button>
+</form>

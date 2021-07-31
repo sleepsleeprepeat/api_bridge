@@ -4,7 +4,9 @@
   "description": "A Programm that create a REST API useable for Show Cue Systems",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "postcss public/styles/style.scss -o public/styles/compiled.css"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,18 @@
   "bugs": {
     "url": "https://github.com/sleepsleeprepeat/hue_to_scs/issues"
   },
-  "homepage": "https://github.com/sleepsleeprepeat/hue_to_scs#readme"
+  "homepage": "https://github.com/sleepsleeprepeat/hue_to_scs#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2"
+  }
 }

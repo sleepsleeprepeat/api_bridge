@@ -1,0 +1,39 @@
+<form method="POST" action="/settings">
+  <h2>General</h2>
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="routePrefix"
+      value="<%= settings.routePrefix %>"
+      name="routePrefix"
+      placeholder=""
+    />
+    <label for="routePrefix">Routeprefix</label>
+  </div>
+
+  <h2>Philips Hue</h2>
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="hueIp"
+      value="<%= settings.hue.ip %>"
+      name="hueIp"
+      placeholder=""
+    />
+    <label for="hueIp">Hue-Bridge IP</label>
+  </div>
+  <div class="form-floating">
+    <input
+      type="text"
+      class="form-control"
+      id="hueUser"
+      value="<%= settings.hue.user %>"
+      name="hueUser"
+      placeholder=""
+    />
+    <label for="hueUser">Hue username</label>
+  </div>
+  <button type="submit" class="btn btn-primary my-3">Save</button>
+</form>
