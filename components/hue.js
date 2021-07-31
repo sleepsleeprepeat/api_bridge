@@ -7,7 +7,7 @@ function setHueScene(group, scene) {
       scene: scene
     })
     .catch((error) => {
-      console.log("Error in Hue component" + error)
+      console.log("Error: " + error)
     })
 }
 
