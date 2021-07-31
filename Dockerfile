@@ -1,5 +1,5 @@
 # nodejs image from dockerhub
-FROM node:14
+FROM node:alpine
 
 # The dir insinde the container the the app sits
 WORKDIR /usr/src/app
@@ -13,8 +13,13 @@ RUN npm ci --only=production
 # copy all the other files in the workdir inside the conatiner
 COPY . .
 
+ENV PORT 3000
+
 # expose the default port of the app
-EXPOSE 3000
+EXPOSE ${PORT}
+
+# use the user provided by the node image
+USER node
 
 # start the app
 CMD ["node", "index.js"]
