@@ -30,7 +30,7 @@ router.get("/:type", async (req, res) => {
 
   let type = req.params.type
   if (type === "hue") {
-    res.render("/create_hue", { scenes: scenes, err_msg: req.flash("err_msg") })
+    res.render("create_hue", { scenes: scenes, err_msg: req.flash("err_msg") })
   } else {
     res.redirect("/create")
   }
