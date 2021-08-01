@@ -16,7 +16,7 @@ app.set("view engine", "ejs")
 app.use(express.static(path.join(__dirname, "public")))
 app.use(
   session({
-    secret: "geheim",
+    secret: process.env.SECRET || "n0-0ne-kn0ws",
     cookie: { maxAge: 60000 },
     resave: false,
     saveUninitialized: true

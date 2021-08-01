@@ -13,8 +13,6 @@ RUN npm ci --only=production
 # copy all the other files in the workdir inside the conatiner
 COPY . .
 
-ENV PORT 3000
-
 # expose the default port of the app
 EXPOSE ${PORT}
 
