@@ -1,7 +1,7 @@
 const axios = require("axios")
 const settings = require("../utils/settings").getSettings()
 
-function setHueScene(group, scene) {
+async function setScene(group, scene) {
   axios
     .put(`http://${settings.hue.ip}/api/${settings.hue.user}/groups/${group}/action`, {
       scene: scene
@@ -11,6 +11,12 @@ function setHueScene(group, scene) {
     })
 }
 
+async function getAllScenes() {
+  let scenes = await axios.get(`https://${settings.hue.ip}/api/${settings.hue.user}/scenes`)
+  return scenes
+}
+
 module.exports = {
-  setHueScene
+  setScene,
+  getAllScenes
 }

@@ -7,6 +7,7 @@ const formParser = express.urlencoded({ extended: true })
 
 const settingsDB = require("../utils/settings")
 const settings = settingsDB.getSettings()
+const comps = require("../utils/components")
 
 router.get("/", async (req, res) => {
   res.redirect("/routes")
@@ -28,13 +29,11 @@ router.get("/create", async (req, res) => {
   res.render("create")
 })
 
-// TODO: Change out Test-API from Philps Hue with the real one
 router.post("/create", formParser, async (req, res) => {
   let selectedType = req.body.selectedType
   let type = req.body.type
 
-  //let scenes = await axios.get(`https://${settings.hue.ip}/api/${settings.hue.user}/scenes`)
-  let scenesData = require("../config/hue.json").scenes
+  let scenesData = await comps.hue.getAllScenes()
   let scenes = []
   for (const key in scenesData) {
     scenes.push({ id: key, name: scenesData[key].name, group: scenesData[key].group })

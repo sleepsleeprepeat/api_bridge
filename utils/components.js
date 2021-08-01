@@ -1,5 +1,5 @@
-const hueComponent = require("../components/hue")
+const hue = require("../components/hue")
 
 module.exports = {
-  hueComponent
+  hue: hue
 }

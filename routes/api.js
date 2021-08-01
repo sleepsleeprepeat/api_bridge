@@ -3,14 +3,14 @@ const router = express.Router()
 
 const db = require("../utils/db")
 const settings = require("../utils/settings").getSettings()
-const components = require("../utils/components")
+const comps = require("../utils/components")
 
 router.get("/:routeName", async (req, res) => {
   if (!db.isNewRoute(req.params.routeName)) {
     route = db.getRouteByName(req.params.routeName)
     if (route.type === "hue") {
       res.sendStatus(200)
-      components.hueComponent.setHueScene(route.group, route.scene)
+      comps.hue.setScene(route.group, route.scene)
     }
   }
 })
