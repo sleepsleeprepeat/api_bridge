@@ -2,7 +2,6 @@ const express = require("express")
 const router = express.Router()
 
 const db = require("../utils/db")
-const settings = require("../utils/settings").getSettings()
 const comps = require("../utils/components")
 
 router.get("/:routeName", async (req, res) => {

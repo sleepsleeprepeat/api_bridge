@@ -8,6 +8,7 @@ require("dotenv").config()
 const app = express()
 
 const mainRoutes = require("./routes/main")
+const createRoutes = require("./routes/create")
 const apiRoutes = require("./routes/api")
 
 app.set("views", path.join(__dirname, "views"))
@@ -32,6 +33,7 @@ app.use(expressLayouts)
 
 app.use("/", mainRoutes)
 app.use("/api", apiRoutes)
+app.use("/create", createRoutes)
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Server running on http://localhost:${process.env.PORT || 3000}`)
