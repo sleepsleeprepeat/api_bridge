@@ -12,13 +12,12 @@ async function setScene(group, scene) {
 }
 
 async function getAllScenes() {
-  // let scenes = await axios
-  //   .get(`https://${settings.hue.ip}/api/${settings.hue.user}/scenes`)
-  //   .catch((error) => {
-  //     console.log("🔴: " + error)
-  //   })
-  let scenesData = require("../config/hue.json").scenes
-  return scenesData
+  let scenes = await axios
+    .get(`https://${settings.hue.ip}/api/${settings.hue.user}/scenes`)
+    .catch((error) => {
+      console.log("🔴: " + error)
+    })
+  return scenes
 }
 
 module.exports = {
