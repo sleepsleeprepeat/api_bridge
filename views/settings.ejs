@@ -24,7 +24,7 @@
     />
     <label for="hueIp">Hue-Bridge IP</label>
   </div>
-  <div class="form-floating">
+  <div class="form-floating mb-3">
     <input
       type="text"
       class="form-control"
@@ -34,6 +34,41 @@
       placeholder=""
     />
     <label for="hueUser">Hue username</label>
+  </div>
+
+  <h2>Lüftung Saal</h2>
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="airIp"
+      value="<%= settings.air.ip %>"
+      name="airIp"
+      placeholder=""
+    />
+    <label for="airIp">IP Addresse</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="airUser"
+      value="<%= settings.air.user %>"
+      name="airUser"
+      placeholder=""
+    />
+    <label for="airUser">Username</label>
+  </div>
+  <div class="form-floating">
+    <input
+      type="text"
+      class="form-control"
+      id="airPw"
+      value="<%= settings.air.pw %>"
+      name="airPw"
+      placeholder=""
+    />
+    <label for="airPw">Password</label>
   </div>
   <button type="submit" class="btn btn-primary my-3">Save</button>
 </form>

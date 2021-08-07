@@ -1,0 +1,25 @@
+<%- include("partials/error.ejs") %>
+
+<form method="POST" action="/create/air">
+  <label for="name" class="mb-2">Name</label>
+  <input type="text" class="form-control mb-3" placeholder="" id="name" name="name" />
+
+  <label for="command" class="mb-2">Scene</label>
+  <select
+    class="form-select mb-3"
+    id="command"
+    name="command"
+    onchange="showHideField(this, ['setLowSpeed', 'setHighSpeed'], 'amount'); showHideField(this, ['setLowSpeed', 'setHighSpeed'], 'amountLabel')"
+  >
+    <option value="setLowSpeed" selected>Leistung Niedrigbetrieb</option>
+    <option value="setHighSpeed">Leistung Normalbetrieb</option>
+    <option value="startLow">Start Niedrigbetrieb</option>
+    <option value="startHigh">Start Normalbetrieb</option>
+    <option value="stopNormal">Normalstop</option>
+  </select>
+
+  <label for="amount" class="mb-2" id="amountLabel">Luftmenge in m³/h</label>
+  <input type="text" class="form-control mb-3" placeholder="" id="amount" name="amount" value="0" />
+
+  <button type="submit" class="btn btn-primary my-3">Save</button>
+</form>

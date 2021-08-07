@@ -1,1 +1,1 @@
-{"hue":{"ip":"","user":""},"routePrefix":"http://localhost"}
+{ "hue": { "ip": "", "user": "" }, "air": { "ip": "", "user": "", "pw": "" }, "routePrefix": "" }
