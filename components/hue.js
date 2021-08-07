@@ -1,21 +1,27 @@
-const axios = require("axios")
-const settings = require("../utils/settings").getSettings()
+const urllib = require('urllib')
+const settings = require('../utils/settings').getSettings()
 
 async function setScene(group, scene) {
-  axios
-    .put(`http://${settings.hue.ip}/api/${settings.hue.user}/groups/${group}/action`, {
-      scene: scene
+  urllib
+    .request(`http://${settings.hue.ip}/api/${settings.hue.user}/groups/${group}/action`, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      },
+      content: JSON.stringify({
+        scene: scene
+      })
     })
     .catch((error) => {
-      console.log("🔴: " + error)
+      console.log('🔴: ' + error)
     })
 }
 
 async function getAllScenes() {
-  let scenes = await axios
-    .get(`https://${settings.hue.ip}/api/${settings.hue.user}/scenes`)
+  let scenes = await urllib
+    .request(`https://${settings.hue.ip}/api/${settings.hue.user}/scenes`, { method: 'GET' })
     .catch((error) => {
-      console.log("🔴: " + error)
+      console.log('🔴: ' + error)
     })
   return scenes
 }
