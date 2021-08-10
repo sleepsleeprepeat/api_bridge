@@ -1,6 +1,6 @@
 {
   "name": "hue_to_scs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A Programm that create a REST API useable for Show Cue Systems",
   "main": "index.js",
   "scripts": {
