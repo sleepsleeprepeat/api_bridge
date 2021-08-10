@@ -5,8 +5,13 @@ const db = require('../utils/db')
 const comps = require('../utils/components')
 
 router.get('/:routeName', async (req, res) => {
-  if (!db.isNewRoute(req.params.routeName)) {
-    route = db.getRouteByName(req.params.routeName)
+  console.log(req.params.routeName + 'TES')
+  let routeName = req.params.routeName.substring(0, req.params.routeName - 6)
+
+  console.log(routeName + 'GEFT')
+
+  if (!db.isNewRoute(routeName)) {
+    route = db.getRouteByName(routeName)
     if (route.type === 'hue') {
       res.sendStatus(200)
       comps.hue.setScene(route.group, route.scene)
@@ -39,6 +44,8 @@ router.get('/:routeName', async (req, res) => {
     } else {
       res.send(404)
     }
+  } else {
+    res.send(404)
   }
 })
 
